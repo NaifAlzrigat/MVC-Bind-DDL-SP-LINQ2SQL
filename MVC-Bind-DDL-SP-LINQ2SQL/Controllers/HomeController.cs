@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVC_Bind_DDL_SP_LINQ2SQL.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,8 @@ namespace MVC_Bind_DDL_SP_LINQ2SQL.Controllers
     {
         public ActionResult Index()
         {
+            BikeStoresEntities db = new BikeStoresEntities();
+            ViewBag.message = new SelectList(db.Get_Bike_Categories(), "category_name");
             return View();
         }
 
